@@ -1,0 +1,64 @@
+{
+  "name": "icp-log",
+  "version": "1.0.0",
+  "description": "icp logs",
+  "main": "index.js",
+  "repository": "git@github.com:MMF-FE/icp-log.git",
+  "author": "vfasky <vfasky@gmail.com>",
+  "license": "MIT",
+  "egg": {
+    "typescript": true
+  },
+  "scripts": {
+    "start": "egg-scripts start --daemon --title=egg-server-icp-log",
+    "stop": "egg-scripts stop --title=egg-server-icp-log",
+    "dev": "egg-bin dev -r egg-ts-helper/register",
+    "debug": "egg-bin debug -r egg-ts-helper/register",
+    "test-local": "egg-bin test -r egg-ts-helper/register",
+    "test": "npm run lint -- --fix && npm run test-local",
+    "cov": "egg-bin cov -r egg-ts-helper/register",
+    "tsc": "ets && tsc -p tsconfig.json",
+    "ci": "npm run lint && npm run cov && npm run tsc",
+    "autod": "autod",
+    "lint": "tslint --project . -c tslint.json",
+    "clean": "ets clean",
+    "setup": "ts-node install.ts"
+  },
+  "dependencies": {
+    "@types/faker": "^4.1.4",
+    "egg": "^2.6.1",
+    "egg-cors": "^2.1.1",
+    "egg-scripts": "^2.6.0",
+    "egg-validate": "^2.0.2",
+    "faker": "^4.1.0",
+    "node-fetch": "^2.2.0",
+    "sqlite3": "^4.0.3",
+    "typeorm": "^0.2.8"
+  },
+  "devDependencies": {
+    "@types/mocha": "^2.2.40",
+    "@types/node": "^7.0.12",
+    "@types/supertest": "^2.0.0",
+    "@vue/cli": "^3.0.5",
+    "autod": "^3.0.1",
+    "autod-egg": "^1.1.0",
+    "egg-bin": "^4.6.2",
+    "egg-ci": "^1.8.0",
+    "egg-init": "^1.15.0",
+    "egg-mock": "^3.16.0",
+    "egg-ts-helper": "^1.11.0",
+    "ts-node": "^7.0.1",
+    "tslib": "^1.9.0",
+    "tslint": "^4.0.0",
+    "typescript": "^3.0.0"
+  },
+  "engines": {
+    "node": ">=8.9.0"
+  },
+  "ci": {
+    "version": "8"
+  },
+  "eslintIgnore": [
+    "coverage"
+  ]
+}
