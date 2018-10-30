@@ -3,7 +3,7 @@
  * @author vfasky<vfasky@gmail.com>
  **/
 
-import getConfig from './config/config.default'
+import { bizConfig } from './config/config.default'
 import helper from './app/extend/helper'
 
 import * as assert from 'assert'
@@ -15,9 +15,7 @@ import fetch from 'node-fetch'
 import * as faker from 'faker'
 
 // @ts-ignore
-const appConfig = getConfig({
-    name: 'icp-log'
-})
+const appConfig = bizConfig
 
 const config = appConfig.typeorm as ConnectionOptions
 

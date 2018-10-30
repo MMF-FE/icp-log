@@ -1,6 +1,25 @@
 import { EggAppConfig, EggAppInfo, PowerPartial } from 'egg'
 import * as path from 'path'
 
+export const bizConfig = {
+    typeorm: {
+        type: 'sqlite',
+        database: 'database.sqlite',
+        synchronize: false,
+        logging: false,
+        entities: [
+            __dirname + '/../app/model/entity/**/*{.ts,.js}'
+        ],
+        migrations: [
+            __dirname + '/../app/model/migration/**/*{.ts,.js}'
+        ],
+        subscribers: [
+            __dirname + '/../app/model/subscriber/**/*{.ts,.js}'
+        ],
+
+    }
+}
+
 export default (appInfo: EggAppInfo) => {
     const config = {} as PowerPartial<EggAppConfig>
 
@@ -23,24 +42,7 @@ export default (appInfo: EggAppInfo) => {
     }
 
     // add your special config in here
-    const bizConfig = {
-        typeorm: {
-            type: 'sqlite',
-            database: 'database.sqlite',
-            synchronize: false,
-            logging: false,
-            entities: [
-                __dirname + '/../app/model/entity/**/*{.ts,.js}'
-            ],
-            migrations: [
-                __dirname + '/../app/model/migration/**/*{.ts,.js}'
-            ],
-            subscribers: [
-                __dirname + '/../app/model/subscriber/**/*{.ts,.js}'
-            ],
-            
-        }
-    }
+    // const bizConfig = bizConfig
 
     // the return config will combines to EggAppConfig
     return {
