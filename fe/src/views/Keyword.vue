@@ -50,7 +50,7 @@ export default class Keywords extends Vue {
 
     protected async mounted() {
         await this.$nextTick()
-        this.height = document.body.clientHeight - 200 + 'px'
+        this.height = document.body.clientHeight - 150 + 'px'
     }
 }
 </script>
