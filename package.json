@@ -10,7 +10,7 @@
     "typescript": true
   },
   "scripts": {
-    "start": "egg-scripts start --daemon --title=egg-server-icp-log --port=7004",
+    "start": "egg-scripts start --daemon --title=egg-server-icp-log --port=7004 --workers=1",
     "stop": "egg-scripts stop --title=egg-server-icp-log ",
     "dev": "egg-bin dev -r egg-ts-helper/register --port=7004",
     "debug": "egg-bin debug -r egg-ts-helper/register",
