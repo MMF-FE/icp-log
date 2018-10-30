@@ -63,6 +63,10 @@ export interface Keyword {
     creatDate: string
 }
 
+export interface KeywordReq {
+    keyword: string
+}
+
 export async function base<T>(url: string, options: RequestInit & {
     data?: {
         [key: string]: any
@@ -84,6 +88,7 @@ export async function base<T>(url: string, options: RequestInit & {
             'token': token
         },
         ...options,
+    // @ts-ignore
     }).then(v => v.json()) as T & {
         success: boolean
         msg?: string
@@ -95,7 +100,6 @@ export async function base<T>(url: string, options: RequestInit & {
             title: '发生错误了',
             message: msg
         })
-        
         return Promise.reject(msg)
     }
 
@@ -123,6 +127,12 @@ export default {
             method: 'GET'
         })
         return res.data
-    }
+    },
 
+    addKeyword(data: KeywordReq) {
+        return base('/ignore/keyword', {
+            method: 'POST',
+            data
+        })
+    }
 }

@@ -81,7 +81,11 @@ export default class ApiController extends Controller {
 
     public async ignoreList() {
         await this.checkToken()
-        let res = await IgnoreKeywordReq().find()
+        let res = await IgnoreKeywordReq().find({
+            order: {
+                id: 'DESC'
+            }
+        })
         this.ctx.body = {
             success: true,
             data: res

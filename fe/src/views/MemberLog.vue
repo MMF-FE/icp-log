@@ -36,14 +36,13 @@
 
 <style lang="scss" scoped>
 .find {
-    margin-bottom: 20px;
+  margin-bottom: 20px;
 }
 </style>
 
-
 <script lang="ts">
-import { Component, Vue } from "vue-property-decorator"
-import api, { MemberLog } from "../api"
+import { Component, Vue } from 'vue-property-decorator'
+import api, { MemberLog } from '../api'
 import * as moment from 'moment'
 
 @Component
@@ -54,20 +53,21 @@ export default class MemberLogs extends Vue {
 
     protected moment = moment
 
-    protected height = '100%' 
+    protected height = '100%'
 
     get list() {
         if (!this.find) {
             return this.logList
         }
         return this.logList.filter(v => {
-            return v.name.includes(this.find) || 
-                v.account.includes(this.find) || 
+            return (
+                v.name.includes(this.find) ||
+                v.account.includes(this.find) ||
                 v.email.includes(this.find) ||
                 v.ip.includes(this.find)
+            )
         })
     }
-
 
     protected async created() {
         this.logList = await api.memberLog()

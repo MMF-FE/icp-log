@@ -1,4 +1,5 @@
 import { EggAppConfig, EggAppInfo, PowerPartial } from 'egg'
+import * as path from 'path'
 
 export default (appInfo: EggAppInfo) => {
     const config = {} as PowerPartial<EggAppConfig>
@@ -14,6 +15,11 @@ export default (appInfo: EggAppInfo) => {
         csrf: {
             enable: false,
         },
+    }
+
+    config.static = {
+        prefix: '/',
+        dir: path.join(appInfo.baseDir, 'fe/dist/')
     }
 
     // add your special config in here
