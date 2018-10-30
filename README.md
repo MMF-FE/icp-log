@@ -11,7 +11,7 @@
 ```bash
 $ yarn
 $ yarn dev
-$ open http://localhost:7001/
+$ open http://localhost:7004/
 ```
 
 ### 登录账号

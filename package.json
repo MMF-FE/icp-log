@@ -10,14 +10,15 @@
     "typescript": true
   },
   "scripts": {
-    "start": "egg-scripts start --daemon --title=egg-server-icp-log",
-    "stop": "egg-scripts stop --title=egg-server-icp-log",
-    "dev": "egg-bin dev -r egg-ts-helper/register",
+    "start": "egg-scripts start --daemon --title=egg-server-icp-log --port=7004",
+    "stop": "egg-scripts stop --title=egg-server-icp-log ",
+    "dev": "egg-bin dev -r egg-ts-helper/register --port=7004",
     "debug": "egg-bin debug -r egg-ts-helper/register",
     "test-local": "egg-bin test -r egg-ts-helper/register",
     "test": "npm run lint -- --fix && npm run test-local",
     "cov": "egg-bin cov -r egg-ts-helper/register",
     "tsc": "ets && tsc -p tsconfig.json",
+    "build": "ets && tsc -p tsconfig.json",
     "ci": "npm run lint && npm run cov && npm run tsc",
     "autod": "autod",
     "lint": "tslint --project . -c tslint.json",

@@ -39,6 +39,7 @@ const router = new Router({
     ],
 })
 
+// @ts-ignore
 router.beforeEach((to, from, next) => {
     if (to.name !== 'login' && !isLogin()) {
         next({
