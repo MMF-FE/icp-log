@@ -8,13 +8,13 @@ export const bizConfig = {
         synchronize: false,
         logging: false,
         entities: [
-            __dirname + '/../app/model/entity/**/*{.ts,.js}'
+            __dirname + '/../app/model/entity/**/*.js'
         ],
         migrations: [
-            __dirname + '/../app/model/migration/**/*{.ts,.js}'
+            __dirname + '/../app/model/migration/**/*.js'
         ],
         subscribers: [
-            __dirname + '/../app/model/subscriber/**/*{.ts,.js}'
+            __dirname + '/../app/model/subscriber/**/*.js'
         ],
 
     }
@@ -42,7 +42,6 @@ export default (appInfo: EggAppInfo) => {
     }
 
     // add your special config in here
-    // const bizConfig = bizConfig
 
     // the return config will combines to EggAppConfig
     return {

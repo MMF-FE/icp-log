@@ -4,6 +4,7 @@
  **/
 import { Application } from 'egg'
 import eggTypeorm from './egg-typeorm'
+import 'reflect-metadata'
 
 export default async (app: Application) => {
     if (app.config.typeorm) {

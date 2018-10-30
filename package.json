@@ -33,6 +33,7 @@
     "egg-validate": "^2.0.2",
     "faker": "^4.1.0",
     "node-fetch": "^2.2.0",
+    "reflect-metadata": "^0.1.12",
     "sqlite3": "^4.0.3",
     "typeorm": "^0.2.8"
   },
