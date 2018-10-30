@@ -21,7 +21,6 @@ export default class ApiController extends Controller {
             name: string
             password: string
         } = this.ctx.request.body
-        console.log(data)
         this.ctx.validate(loginRule, data)
         let user = await UserReq().findOne({
             where: {
@@ -36,6 +35,8 @@ export default class ApiController extends Controller {
             }
             return
         }
+
+        delete user.password
 
         let session = await SessionReq().findOne({
             user

@@ -12,10 +12,15 @@
                 class="form"
                 label-width="60px">
                 <el-form-item label="账号" prop="name">
-                    <el-input v-model="data.name"></el-input>
+                    <el-input 
+                        @keyup.enter.native="login"
+                        v-model="data.name"></el-input>
                 </el-form-item>
                 <el-form-item label="密码" prop="password">
-                    <el-input type="password" v-model="data.password"></el-input>
+                    <el-input 
+                        type="password" 
+                        @keyup.enter.native="login"
+                        v-model="data.password"></el-input>
                 </el-form-item>
                 <el-form-item>
                     <el-button type="primary" @click="login">登录</el-button>
@@ -44,7 +49,7 @@
 </style>
 <script lang="ts">
 import { Component, Vue } from 'vue-property-decorator'
-import api, { LoginReq } from '../api'
+import api, { LoginReq, setUser } from '../api'
 import env from 'env'
 
 @Component
@@ -79,10 +84,13 @@ export default class Login extends Vue {
             }
             this.isLoading = true
             try {
-                let res = await api.login(this.data)
-                console.log(res)
+                let user = await api.login(this.data)
+                setUser(user)
+                this.$router.push({
+                    name: 'memberLog'
+                })
             } catch (error) {
-                console.log(error)
+                this.isLoading = false
             }
         })
     }
