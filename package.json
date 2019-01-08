@@ -23,7 +23,8 @@
     "autod": "autod",
     "lint": "tslint --project . -c tslint.json",
     "clean": "ets clean",
-    "setup": "ts-node install.ts"
+    "setup": "ts-node install.ts",
+    "cpwd": "ts-node changeAdminPwd.ts"
   },
   "dependencies": {
     "@types/faker": "^4.1.4",
