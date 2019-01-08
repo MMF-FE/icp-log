@@ -11,7 +11,7 @@ import UserRep from './app/model/entity/User'
 
 
 // 要修改的密码
-const password = 'F9d!@Ksdwo39'
+const password = 'F9d!@Ksd'
 
 // @ts-ignore
 const appConfig = bizConfig
